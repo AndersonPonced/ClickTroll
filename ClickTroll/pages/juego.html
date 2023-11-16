@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Troll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Enlaces para SweetAlert2 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    
+</head>
+<body>
+    <audio id="hoverSound" preload="auto">
+        <source src="../audios/hover.m4a" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <audio id="targetClickSound" src="../audios/videoplayback (1).m4a"></audio>
+    <audio id="levelUpSound" src="../audios/victoria.m4a"></audio>
+    <audio id="loseSound" src="../audios/derrota.m4a"></audio>
+    <audio id="purchaseSound" src="../audios/moneda.m4a"></audio>
+<!-- ... (código existente) -->
+
+<audio id="pauseSound" src="../audios/pause.m4a"></audio>
+<audio id="resumeSound" src="../audios/start.m4a"></audio>
+
+<!-- ... (código existente) -->
+
+    <audio id="backgroundMusic" src="../audios/fondo.m4a" loop></audio>
+
+
+    <h1>Click Troll</h1>
+    <p>¡Haz clic en el objetivo antes de que se agote el tiempo!</p>
+    <div id="game-container">
+        <div id="target"></div>
+        <div id="fake-target"></div>
+        <div id="fake-targett"></div> <!-- Nuevo elemento para el objetivo falso -->
+    </div>
+    <p>Puntuación: <span id="score">0</span></p>
+    <p>Nivel: <span id="level">1</span></p>
+    <p id="message"></p>
+    <p id="timer">Tiempo: <span id="time-left">10</span>s</p>
+    <p>Monedas: <span id="coins">0</span></p>
+    <!-- Agrega un botón para pausar el tiempo -->
+<button id="pauseButton" onclick="togglePause()">Pausar</button>
+<a href="../index.html"><button>Volver al Menú</button></a>
+        <!-- Aquí se mostrarán los objetos especiales -->
+        <ul id="special-items">
+            <h2>Objetos</h2>
+            <li data-index="0">
+                <div class="special-item">
+                    <div class="item-icon item-1" data-id="1" onclick="useItem(this)"></div>
+                    <div class="item-details">
+                        <span class="item-name">Mario</span>
+                        <span class="item-price">Precio: 10 monedas</span>
+                        <button class="buy-button" data-price="10" data-index="0" data-name="Mario">Comprar</button>
+                    </div>
+                </div>
+            </li>
+            <li data-index="1">
+                <div class="special-item">
+                    <div class="item-icon item-2" data-id="2" onclick="useItem(this)"></div>
+                    <div class="item-details">
+                        <span class="item-name">Rengoku</span>
+                        <span class="item-price">Precio: 20 monedas</span>
+                        <button class="buy-button" data-price="20" data-index="1" data-name="Rengoku">Comprar</button>
+                    </div>
+                </div>
+            </li>
+            <li data-index="2">
+                <div class="special-item">
+                    <div class="item-icon item-3" data-id="3" onclick="useItem(this)"></div>
+                    <div class="item-details">
+                        <span class ="item-name">Dragon Dorado</span>
+                        <span class="item-price">Precio: 30 monedas</span>
+                        <button class="buy-button" data-price="30" data-index="2" data-name="Dragon Dorado">Comprar</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- Agrega esto en el lugar donde deseas mostrar el récord -->
+<div id="record-container">
+    <h2>Récord</h2>
+    <p id="record">0</p>
+</div>
+
+        <div id="owned-items">
+            <h2>Objetos Comprados</h2>
+            <ul id="owned-items-list">
+                <!-- Aquí se mostrarán los objetos comprados -->
+            </ul>
+        </div>
+         
+    <script src="../js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>
